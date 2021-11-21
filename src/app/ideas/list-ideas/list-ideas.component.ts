@@ -1,6 +1,7 @@
 import { IdeasService } from './../ideas.service';
 import { Idea } from './../models/idea.model';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-ideas',
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListIdeasComponent implements OnInit {
   ideas: Idea[] = [];
 
-  constructor(private ideasService: IdeasService) { }
+  constructor(private ideasService: IdeasService, private router: Router) { }
 
   ngOnInit(): void {
     this.listIdeas();
@@ -30,5 +31,9 @@ export class ListIdeasComponent implements OnInit {
 
   deleteIdea(idea: Idea) {
     this.ideasService.deleteIdea(idea).subscribe(_ => this.listIdeas());
+  }
+
+  editIdea(idea: Idea) {
+    this.router.navigateByUrl(`/ideas/new?id=${idea.id}`);
   }
 }

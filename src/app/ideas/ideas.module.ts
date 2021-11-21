@@ -9,6 +9,10 @@ import { ListIdeasComponent } from './list-ideas/list-ideas.component';
 import { IdeaComponent } from './idea/idea.component';
 import { VoteComponent } from './vote/vote.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ]
 })
 export class IdeasModule { }

@@ -11,6 +11,10 @@ export class IdeasService {
 
   constructor(private http: HttpClient) { }
 
+  getIdea(id: string) {
+    return this.http.get<Idea>(`${this._baseUrl}/${id}`);
+  }
+
   listIdeas() {
     return this.http.get<Idea[]>(`${this._baseUrl}`);
   }
@@ -25,5 +29,13 @@ export class IdeasService {
 
   deleteIdea(idea: Idea) {
     return this.http.delete<{id: string}>(`${this._baseUrl}/${idea.id}`);
+  }
+
+  createIdea(name: string, description: string) {
+    return this.http.post<Idea>(`${this._baseUrl}`, {name, description});
+  }
+
+  updateIdea(id: string, name: string, description: string) {
+    return this.http.put<Idea>(`${this._baseUrl}/${id}`, {name, description});
   }
 }

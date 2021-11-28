@@ -1,1 +1,12 @@
-<p>idea works!</p>
+<h1>{{idea?.name}}</h1>
+
+<h2>Details</h2>
+
+<div><b>Name</b></div>
+<div>{{idea?.name}}</div>
+
+<div><b>Description</b></div>
+<div>{{idea?.description}}</div>
+
+<app-vote [idea]="idea" (vote)="goBack()"></app-vote>
+

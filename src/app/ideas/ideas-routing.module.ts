@@ -11,15 +11,15 @@ const routes: Routes = [
     component: ListIdeasComponent
   },
   {
-    path: ':id',
-    component: IdeaComponent
-  },
-  {
     path: 'new',
     resolve: {idea: IdeaResolverService},
     runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     component: NewIdeaComponent
-  }
+  },
+  {
+    path: ':id',
+    component: IdeaComponent
+  },
 ];
 
 @NgModule({
